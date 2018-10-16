@@ -1,0 +1,6 @@
+<?php
+foreach ($this->dados as $model) {
+    printf('<a href="/usuario/%d">%d -> %s</a> 
+        <a href="/usuario/excluir/%d"> X </a><br>', $model->id, $model->id, $model->email, $model->id);
+
+}

@@ -1,0 +1,15 @@
+[0;1;31m●[0m mysql.service - MySQL Community Server
+   Loaded: loaded (/lib/systemd/system/mysql.service; disabled; vendor preset: enabled)
+   Active: [0;1;31mfailed[0m (Result: exit-code) since Sat 2018-09-01 11:23:30 -03; 24s ago
+  Process: 12480 ExecStartPre=/usr/share/mysql/mysql-systemd-start pre [0;1;31m(code=exited, status=1/FAILURE)[0m
+
+set 01 11:23:29 Paulo-NB systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start MySQL Community Server.[0m
+set 01 11:23:30 Paulo-NB systemd[1]: mysql.service: Service hold-off time over, scheduling restart.
+set 01 11:23:30 Paulo-NB systemd[1]: mysql.service: Scheduled restart job, restart counter is at 5.
+set 01 11:23:30 Paulo-NB systemd[1]: Stopped MySQL Community Server.
+set 01 11:23:30 Paulo-NB systemd[1]: [0;1;39m[0;1;31m[0;1;39mmysql.service: Start request repeated too quickly.[0m
+set 01 11:23:30 Paulo-NB systemd[1]: [0;1;39m[0;1;31m[0;1;39mmysql.service: Failed with result 'exit-code'.[0m
+set 01 11:23:30 Paulo-NB systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start MySQL Community Server.[0m
+set 01 11:23:34 Paulo-NB systemd[1]: [0;1;39m[0;1;31m[0;1;39mmysql.service: Start request repeated too quickly.[0m
+set 01 11:23:34 Paulo-NB systemd[1]: [0;1;39m[0;1;31m[0;1;39mmysql.service: Failed with result 'exit-code'.[0m
+set 01 11:23:34 Paulo-NB systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start MySQL Community Server.[0m
