@@ -14,12 +14,22 @@ class UsuarioGateway
 
     public function persistir(Usuario $model)
     {
+    	$dados = $model->getArrayCopy();
+
+        /*
+        ****outra forma:
         $dados = [
             'email' => $model->email,
             'senha' => $model->senha,
-        ];
+        ];*/
 
         $this->tableGateway->insert($dados);
+    }
+
+    public function buscar($id)
+    {
+        $result = $this->tableGateway->select(['id' => $id]);
+        return $result->current();
     }
 
     public function listar()
@@ -27,24 +37,20 @@ class UsuarioGateway
         return $this->tableGateway->select();
     }
 
-    public function visualizar($id)
+    public function visualizar(Usuario $model)
     {
-        $resultados = $this->tableGateway->select(['id' => $id]);
+        $resultados = $this->tableGateway->select(['id' => $model->id]);
         return $resultados->current();
     }
 
-    public function excluir($id)
+    public function excluir(Usuario $model)
     {
-        $this->tableGateway->delete(['id' => $id]);
+        $this->tableGateway->delete(['id' => $model->id]);
     }
 
     public function atualizar($model)
     {
-        $dados = [
-            'id'    => $model->id,
-            'email' => $model->email,
-            'senha' => $model->senha,
-        ];
+        $dados = $model->getArrayCopy();
 
         $this->tableGateway->update($dados, ['id' => $model->id]);
     }
