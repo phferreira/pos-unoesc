@@ -15,7 +15,7 @@ class UsuarioController extends AbstractActionController
 
     public function indexAction()
     {
-        return new ViewModel(['email' => 'galvao@galvao.eti.br']);
+        return new ViewModel(['email' => 'p.h.ferreirah@gmail.com']);
     }
 
     public function visualizarAction()
@@ -27,8 +27,9 @@ class UsuarioController extends AbstractActionController
                 'dados' => $this->table->listar()
             ]);
         } else {
+        	$model = $this->table->buscar($id);
             return new ViewModel([
-                'dados' => $this->table->visualizar($id),
+                'dados' => $this->table->visualizar($model),
             ]);
         }
     }
@@ -54,7 +55,8 @@ class UsuarioController extends AbstractActionController
     public function excluirAction()
     {
         $id = $this->params()->fromRoute('id');
-        $this->table->excluir($id);
+        $model = $this->table->buscar($id);
+        $this->table->excluir($model);
 
         return $this->redirect()->toRoute('usuario_perfil');
     }
@@ -71,6 +73,7 @@ class UsuarioController extends AbstractActionController
             $form->setData($dados);
 
             if (!$form->isValid()) {
+            	//implementar mensagem de erro
             }
 
             $model = new \Application\Model\Usuario();
@@ -78,7 +81,8 @@ class UsuarioController extends AbstractActionController
 
             $this->table->atualizar($model);
         } else {
-            $dados = $this->table->visualizar($id);
+            $model = $this->table->buscar($id);
+            $dados = $this->table->visualizar($model);
             $form->bind($dados);
         }
 
